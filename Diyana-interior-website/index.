@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyana-interior | Интериорен дизайн</title>
+    <style>
+        /* Основен топъл бежов цвят за целия сайт */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3ece4; /* Луксозен, топъл бежов нюанс */
+            color: #3d352e;
+        }
+
+        header {
+            background-color: #ebdcd0; /* Уютно бежово за хедъра */
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid #dfcfc2;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #2b231d;
+        }
+        header p {
+            color: #b38f5d; /* Златисто-месингов акцент */
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Контейнер за слайдера */
+        .slider-container {
+            max-width: 850px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid #dfcfc2;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 100%;
+        }
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .slide img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* ОПРАВЕНИТЕ НАДПИСИ: Тъмна елегантна плашка под снимката за перфектна видимост */
+        .slide-info {
+            position: absolute;
+            bottom: 0;
+            background-color: #2b231d; /* Тъмен земен цвят - гарантира 100% четимост! */
+            width: 100%;
+            padding: 20px 25px;
+            box-sizing: border-box;
+            border-top: 3px solid #b38f5d; /* Златен кант */
+        }
+        .slide-info h3 {
+            margin: 0 0 6px 0;
+            color: #ebdcd0; /* Нежно светло бежово за заглавието */
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .slide-info p {
+            margin: 0;
+            color: #f3ece4; /* Бял/светъл текст за описанието */
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Бутони за стрелките */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #2b231d;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .slider-btn:hover {
+            background: #b38f5d;
+            color: white;
+        }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        /* Форма за записване на час */
+        .booking-section {
+            background-color: #fbf9f6;
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #dfcfc2;
+        }
+        .booking-section h2 {
+            text-align: center;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2b231d;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a3f35;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcd1c4;
+            background-color: #fff;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+            color: #333;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #b38f5d;
+        }
+        .submit-btn {
+            background-color: #b38f5d;
+            color: #fff;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #947245;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #2b231d;
+            color: #ebdcd0;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header> 
+        <h1>Diyana-interior</h1>
+        <p>Създаваме пространства, които вдъхновяват</p>
+    </header>
+
+    <div>
+        <h2 style="text-align: center; margin-top: 50px; text-transform: uppercase; letter-spacing: 2px;">Галерия Проекти</h2>
+    
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200" alt="Модерен хол">
+                    <div class="slide-info">
+                        <h3>Модерен Всекидневен Трак</h3>
+                        <p>Минималистичен дизайн с топли дървесни акценти.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200" alt="Скандинавска кухня">
+                    <div class="slide-info">
+                        <h3>Скандинавска Кухня</h3>
+                        <p>Функционалност, чисти линии и усещане за простор.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200" alt="Уютна спалня">
+                    <div class="slide-info">
+                        <h3>Уютна Спалня</h3>
+                        <p>Релаксираща атмосфера в пастелни и неутрални тонове.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200" alt="Луксозна трапезария">
+                    <div class="slide-info">
+                        <h3>Луксозна Трапезария</h3>
+                        <p>Елегантна маса с цветни кадифени столове за акцент.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200" alt="Светъл офис">
+                    <div class="slide-info">
+                        <h3>Модерен Домашен Офис</h3>
+                        <p>Креативно и цветно пространство за продуктивна работа.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200" alt="Стилна всекидневна">
+                    <div class="slide-info">
+                        <h3>Елегантен Преходен Хол</h3>
+                        <p>Неутрална цветова палитра с мека мебел в цвят крем.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200" alt="Модерна баня">
+                    <div class="slide-info">
+                        <h3>Минималистична Баня</h3>
+                        <p>Комбинация от естествен мрамор и матови черни детайли.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200" alt="Луксозна спалня">
+                    <div class="slide-info">
+                        <h3>Спалня от висок клас</h3>
+                        <p>Скрити LED осветления и стена с мека тапицерия.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>        
+
+    <div class="booking-section">
+        <h2>Запази час за консултация</h2>
+        <p style="text-align: center; color: #777; margin-bottom: 30px;">Обсъдете вашите идеи с нашия интериорен дизайнер</p>
+        
+        <form action="https://formsubmit.co/mishoididi123@abv.bg" method="POST">
+            <div class="form-group">
+                <label for="name">Вашето Име</label>
+                <input type="text" id="name" name="name" placeholder="Име и Фамилия" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Телефон за връзка</label>
+                <input type="tel" id="phone" name="phone" placeholder="0888 XXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Вашият Имейл</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="project-type">Тип на проекта</label>
+                <select id="project-type" name="project-type">
+                    <option value="all">Цял апартамент / Къща</option>
+                    <option value="living-room">Всекидневна / Хол</option>
+                    <option value="kitchen">Кухня</option>
+                    <option value="bedroom">Спалня</option>
+                    <option value="other">Друго пространство</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Изберете дата</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Удобен час</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Разкажете ни малко повече (по желание)</label>
+                <textarea id="message" name="message" rows="4" placeholder="Квадратура, стил, който харесвате..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Изпрати запитване</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diyana-interior. Всички права запазени.</p>
+    </footer>
+
+    <script>
+        let currentIdx = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function moveSlide(direction) {
+            currentIdx += direction;
+            
+            if (currentIdx >= totalSlides) {
+                currentIdx = 0;
+            }
+            if (currentIdx < 0) {
+                currentIdx = totalSlides - 1;
+            }
+            
+            slider.style.transform = `translateX(-${currentIdx * 100}%)`;
+        }
+
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+    </script>
+
+</body>
+</html>
